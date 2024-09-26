@@ -19,11 +19,17 @@
 
     <!-- Nosso CSS -->
     <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/assets/css/pokedex.css">
+    <link rel="stylesheet" href="/assets/css/pokedex-list.css">
+    <link rel="stylesheet" href="/assets/css/pokedex-details.css">
 </head>
 
 <body>
-    <section class="content">
+    <section class="content-list" id="poke-list-id">
+        <a onclick="goToList()" title="Go back to list" style="cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+            </svg>
+        </a>
         <h1>Pokedex</h1>
 
         <ol id="pokemonList" class="pokemons">
@@ -37,8 +43,51 @@
         </div>
     </section>
 
+    <section class="content-details" id="poke-details-id">
+        <div class="details-base">
+            <a onclick="goToList()" title="Go back to list" style="cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                    fill="#e8eaed">
+                    <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                </svg>
+            </a>
+
+            <div class="title-and-types">
+                <h1 class="pokemon-name" id="pokemon-name"></h1>
+
+                <ol id="ol-types" class="types">
+                    <!-- ...... Type list here ...... -->
+                </ol>
+            </div>
+            <span id="pokemon-id"></span>
+
+            <div class="picture">
+                <img id="pokemon-img" src="" alt="Pokemon image">
+            </div>
+        </div>
+        <div class="details-card">
+            <nav>
+                <a id="about-tab-link" class="details-tab active" onclick="changeTab(event, 'about-tab')">About</a>
+                <a id="base-stats-tab-link" class="details-tab" onclick="changeTab(event, 'base-stats-tab')">Base Stats</a>
+                <a id="evolution-tab-link" class="details-tab" onclick="changeTab(event, 'evolution-tab')">Evolution</a>
+                <a id="moves-tab-link" class="details-tab" onclick="changeTab(event, 'moves-tab')">Moves</a>
+            </nav>
+
+            <div id="about-tab" class="tab">
+                <ul id="ul-attributies" class="attributies">
+                    <!-- ..... attribute items here ..... -->
+                </ul>
+            </div>
+
+            <div id="base-stats-tab" class="tab hidden"> something about Base Stats here ...</div>
+            <div id="evolution-tab" class="tab hidden"> something about Evolution here ...</div>
+            <div id="moves-tab" class="tab hidden"> something about Moves here ...</div>
+        </div>
+    </section>
+
     <!-- Nosso JS -->
     <script src="/assets/js/pokemon-model.js"></script>
+    <script src="/assets/js/pokemon-details-model.js"></script>
     <script src="/assets/js/poke-api.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>
